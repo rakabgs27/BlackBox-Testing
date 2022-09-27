@@ -100,21 +100,6 @@ class KategoriTest extends TestCase
 
         $response->assertDontSee('testingTest');
     }
-
-    public function test_nama_kategori_is_required()
-    {
-        $user = User::factory()->create();
-
-        $response = $this->actingAs($user)->post('/kategori/create', [
-            'nama_kategori' => '',
-        ]);
-
-        $response->assertStatus(302);
-        $response->assertInvalid([
-            'nama_kategori' => 'The nama kategori field is required.',
-        ]);
-    }
-
     
 
     
